@@ -1,0 +1,21 @@
+- name: make static directory world writable XXX
+  become: yes
+  file:
+    group: www-data
+    mode: u=rwx,g=rwx,o=rwx
+    owner: www-data
+    path: "{{ static_dir }}"
+    state: directory
+
+- name: manage.py collectstatic
+  docker_container:
+    cleanup: true
+    command: "./manage.py collectstatic --no-input --clear"
+    detach: false
+    env: "{{ docker_env }}"
+    image: "{{ image_registry_url }}"
+    name: django_collectstatic
+    network_mode: host
+    restart_policy: no
+    state: started
+    volumes: "{{ docker_volumes }}"

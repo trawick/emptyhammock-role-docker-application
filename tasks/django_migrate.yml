@@ -1,0 +1,11 @@
+- name: manage.py migrate
+  docker_container:
+    cleanup: true
+    command: "./manage.py migrate"
+    detach: false
+    env: "{{ docker_env }}"
+    image: "{{ image_registry_url }}"
+    name: django_migrate
+    network_mode: host
+    restart_policy: no
+    state: started

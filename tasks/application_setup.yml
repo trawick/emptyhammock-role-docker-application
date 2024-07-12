@@ -1,0 +1,23 @@
+- name: Create project directories
+  file: >
+    dest="{{ item }}"
+    mode=0755
+    owner={{ project_user }}
+    group={{ project_user }}
+    state=directory
+  with_items:
+    - "{{ script_dir }}"
+
+- name: Copy scripts
+  copy: src=reload_web_config.sh dest={{ script_dir }}/ owner={{ project_user }} group={{ project_user }} mode=0755
+
+- template: >
+      src="{{ item }}.j2"
+      dest="{{ script_dir }}/{{ item }}"
+      owner={{ project_user }}
+      group={{ project_user }}
+      mode=0755
+  with_items:
+    - obtain_certificate.sh
+    - pip_freeze.sh
+    - renew_certificate.sh

@@ -1,0 +1,5 @@
+---
+certificate_domains:
+  - "{{ canonical_server_name }}"
+  - "www.{{ canonical_server_name }}"
+cert_source: "self-signed"

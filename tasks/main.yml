@@ -1,0 +1,15 @@
+---
+- name: Create directories and scripts
+  include_tasks: application_setup.yml
+
+- name: Pull Docker image
+  include_tasks: pull_docker_image.yml
+
+- name: Django collectstatic
+  include_tasks: django_collectstatic.yml
+
+- name: Django migrate
+  include_tasks: django_migrate.yml
+
+- name: Run web application
+  include_tasks: start_docker_container.yml

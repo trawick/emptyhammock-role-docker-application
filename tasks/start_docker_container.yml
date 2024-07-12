@@ -1,0 +1,14 @@
+- name: Start container
+  docker_container:
+    env: "{{ docker_env }}"
+    image: "{{ image_registry_url }}"
+    name: django_application
+    network_mode: host
+    restart_policy: unless-stopped
+    state: started
+    volumes: "{{ docker_volumes }}"
+    log_driver: syslog
+    log_options:
+      syslog-address: unixgram:///dev/log
+      syslog-facility: daemon
+      tag: "{{ project_name }}"
