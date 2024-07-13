@@ -6,6 +6,9 @@
     group={{ project_user }}
     state=directory
   with_items:
+    # Create project_dir explicitly so that it has the required permissions.
+    # (script_dir is generally within project_dir.)
+    - "{{ project_dir }}"
     - "{{ script_dir }}"
 
 - name: Copy scripts
