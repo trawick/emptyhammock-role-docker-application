@@ -28,4 +28,6 @@
     restart_policy: no
     state: started
     volumes: "{{ docker_volumes }}"
-    user: "{{ project_user_id }}:{{ project_group_id }}"
+    # XXX permission denied when this is used and collectstatic deletes files
+    # already in the directory
+    # user: "{{ project_user_id }}:{{ project_group_id }}"

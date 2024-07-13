@@ -1,5 +1,10 @@
 # Changes and migration requirements
 
+## Version 0.0.5
+
+* For the collectstatic step only, revert the change to run the container as the
+  project user/group.
+
 ## Version 0.0.4
 
 * Run the Docker container as the project user/group.
