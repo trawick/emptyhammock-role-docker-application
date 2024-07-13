@@ -1,3 +1,12 @@
+- name: Look up user id of project user
+  getent:
+    database: passwd
+    key: "{{ project_user }}"
+
+- set_fact:
+    project_user_id: "{{ getent_passwd[project_user][1] }}"
+    project_group_id: "{{ getent_passwd[project_user][2] }}"
+
 - name: manage.py migrate
   docker_container:
     cleanup: true
@@ -9,3 +18,4 @@
     network_mode: host
     restart_policy: no
     state: started
+    user: "{{ project_user_id }}:{{ project_group_id }}"

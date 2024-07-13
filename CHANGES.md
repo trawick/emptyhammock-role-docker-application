@@ -1,5 +1,9 @@
 # Changes and migration requirements
 
+## Version 0.0.4
+
+* Run the Docker container as the project user/group.
+
 ## Version 0.0.3
 
 * Add default values for `docker_volumes`, `aws_region`, and `image_registry_url`.

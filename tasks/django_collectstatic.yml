@@ -7,6 +7,15 @@
     path: "{{ static_dir }}"
     state: directory
 
+- name: Look up user id of project user
+  getent:
+    database: passwd
+    key: "{{ project_user }}"
+
+- set_fact:
+    project_user_id: "{{ getent_passwd[project_user][1] }}"
+    project_group_id: "{{ getent_passwd[project_user][2] }}"
+
 - name: manage.py collectstatic
   docker_container:
     cleanup: true
@@ -19,3 +28,4 @@
     restart_policy: no
     state: started
     volumes: "{{ docker_volumes }}"
+    user: "{{ project_user_id }}:{{ project_group_id }}"
