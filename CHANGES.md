@@ -1,5 +1,9 @@
 # Changes and migration requirements
 
+## Version 0.0.6
+
+* Fix emptyhammock-maintenance's failure to parse the output of pip_freeze.sh.
+
 ## Version 0.0.5
 
 * For the collectstatic step only, revert the change to run the container as the

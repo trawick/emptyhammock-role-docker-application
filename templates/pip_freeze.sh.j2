@@ -9,4 +9,6 @@ fi
 # as hard-coded in application.yml
 CONTAINER_NAME=django_application
 # Run via sudo since maintenance user isn't in `docker` group
-sudo docker exec -t ${CONTAINER_NAME} pip freeze --disable-pip-version-check >${OUTFILE}
+# Add --no-cache-dir to avoid warnings about lack of virtualenv in pip output, which results in
+# emptyhammock-maintenance being unable to parse the output.
+sudo docker exec -t ${CONTAINER_NAME} pip freeze --no-cache-dir --disable-pip-version-check >${OUTFILE}
