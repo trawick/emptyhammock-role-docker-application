@@ -24,3 +24,4 @@
     - obtain_certificate.sh
     - pip_freeze.sh
     - renew_certificate.sh
+    - manage.sh

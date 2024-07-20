@@ -1,5 +1,9 @@
 # Changes and migration requirements
 
+## Version 0.0.7
+
+* Install manage.sh script so that remote-manage scripts can work.
+
 ## Version 0.0.6
 
 * Fix emptyhammock-maintenance's failure to parse the output of pip_freeze.sh.
