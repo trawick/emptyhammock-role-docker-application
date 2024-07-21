@@ -7,4 +7,4 @@ docker_volumes:
   - "{{ static_dir }}:{{ static_dir }}"
   - "{{ media_dir }}:{{ media_dir }}"
 aws_region: us-east-1
-image_registry_url: "{{ aws_account_id }}.dkr.ecr.{{ aws_region }}.amazonaws.com/{{ project_name }}"
+image_registry_url: "{{ aws_account_id }}.dkr.ecr.{{ aws_region }}.amazonaws.com/{{ image_name }}"

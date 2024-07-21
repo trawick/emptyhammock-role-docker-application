@@ -1,5 +1,10 @@
 # Changes and migration requirements
 
+## Version 0.0.8
+
+* Support projects where `image_name` is not the same as `project_name`.  Projects
+  must now set `image_name` variable.
+
 ## Version 0.0.7
 
 * Install manage.sh script so that remote-manage scripts can work.

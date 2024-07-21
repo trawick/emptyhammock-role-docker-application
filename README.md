@@ -21,6 +21,7 @@ snippets here.
 | `docker_env`                | dictionary of environment variables passed to Docker container      | none                                               |
 | `docker_volumes`            | list of Docker volume parameters                                    | `static_dir` and `media_dir` are mirrors with host |
 | `image_registry_url`        | ECR URL for project's Docker image                                  | `project_name` repo within AWS account and region  |
+| `image_name`                | Docker image base name                                              | none                                               |
 | `media_dir`                 | directory within `project_dir` for media files served by webserver  | none                                               |
 | `project_dir`               | directory within `project_user`'s HOME for project files            | none                                               |
 | `project_name`              | name of project, used in default `image_regitry_url`                | none                                               |
